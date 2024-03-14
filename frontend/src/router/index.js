@@ -9,15 +9,15 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: IndexView,
-    },
-    {
-      path: '/about',
-      component: AboutView,
       children: [
         {
-
+          path: '',
+          component: IndexView,
         },
+        {
+          path: '/about',
+          component: AboutView,
+        }
       ],
     },
   ]
