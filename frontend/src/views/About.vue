@@ -2,21 +2,149 @@
 
 </script>
 
-
 <template>
-  <div class="common-layout">
-    <el-container>
-      <el-header>
+  <div style="position: fixed; top: 0; left: 0; width: 100%;">
+    <el-scrollbar max-height="750px">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" style="width: 100%">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled">Disabled</a>
+            </li>
+          </ul>
+          <div style="width: 700px"></div>
+          <form>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 
-      </el-header>
-      <el-container>
-        <el-aside width="200px">Aside</el-aside>
-        <el-container>
-          <el-main>Main</el-main>
-          <el-footer>Footer</el-footer>
-        </el-container>
-      </el-container>
-    </el-container>
+          </form>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </div>
+      </nav>
+      <div style="width: 100%; background-color: rgba(222,218,194,0.47)">
+        <div style="margin: 0 auto; width: 60%; padding-top: 5px">
+          <div class="row">
+            <div class="col-md-4 text-center" style="background-color: rgba(80,218,166,0.93)">
+              <h4>关于舞</h4>
+            </div>
+            <div class="col-md-4 text-center" style="background-color: #658dc7">
+              <h4>团队理念</h4>
+            </div>
+            <div class="col-md-4 text-center" style="background-color: #6865c7">
+              <h4>联系我们</h4>
+            </div>
+          </div>
+        </div>
+        <div style="background-color: #f8f8f8; width: 61.6%; margin: 0 auto;">
+          <div style="height: 50px"></div>
+          <div class="text-center"><h3>舞</h3></div>
+          <div style="height: 20px"></div>
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+              <img src="@/assets/images/about/logo.png" alt="">
+            </div>
+            <div class="col-md-6">
+              <div style="height: 25px"></div>
+              <p style="color: rgba(166,162,162,0.84)">
+                欢迎来到我们的网站！我们致力于为您提供免费的舞蹈学习体验。
+                通过先进的人工智能生成舞蹈，我们为您带来独特的学习方式。
+                无论您是想学习跳舞还是寻找创作灵感，我们都为您提供了丰富的舞蹈视频资源。
+                我们的愿景是成为教育力量薄弱地区孩子们的舞蹈老师，让更多人享受跳舞的乐趣，探索舞蹈的无限可能。
+                让我们一起跳动起来，感受舞蹈的魅力！
+              </p>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+        </div>
+        <div
+            style="width: 61.6%; margin: 0 auto; background: linear-gradient(to bottom, rgba(239,230,193,0.75), #f8f8f2);">
+          <div style="height: 50px"></div>
+          <div class="text-center"><h3>团队理念</h3></div>
+          <div style="height: 20px"></div>
+          <div class="text-center" style="width: 10%; margin: 0 auto; background-color: #dfe3cd">
+            <h5>使命</h5>
+          </div>
+          <div class="text-center">
+            <h4>助力每一个渴望起舞的人</h4>
+            <p style="color: rgba(166,162,162,0.84)">Help everyone who wants to dance</p>
+          </div>
+          <div style="height: 15px"></div>
+          <div class="text-center" style="width: 10%; margin: 0 auto; background-color: #dfe3cd">
+            <h5>价值观</h5>
+          </div>
+          <div style="height: 5px"></div>
+          <div class="row" style="width: 90%; margin: 0 auto;">
+            <div class="col-md-3" style="background-color: white;border-radius: 20px 20px 20px 20px;">
+              <div style="height: 20px"></div>
+              <div style="margin: 0 auto; width: 20%">
+                <img src="@/assets/images/about/dang.png" alt="" style="width: 40px; height: 40px; ">
+              </div>
+              <div style="height: 10px;"></div>
+              <div class="text-center">
+                <h5>勇于担当</h5>
+                <p style="font-weight: lighter; font-size: smaller">
+                  为全球教育资源匮乏地区的孩子们提供舞蹈学习机会，同时为跳舞者们提供创作灵感。
+                  让舞蹈成为连接世界、表达个性和促进文化交流的力量。
+                </p>
+              </div>
+            </div>
+            <div class="col-md-3" style="background-color: white;border-radius: 20px 20px 20px 20px;">
+              <div style="height: 20px"></div>
+              <div style="margin: 0 auto; width: 20%">
+                <img src="@/assets/images/about/time.png" alt="" style="width: 40px; height: 40px;">
+              </div>
+              <div style="height: 10px;"></div>
+              <div class="text-center">
+                <h5>与时俱进</h5>
+                <p></p>
+              </div>
+            </div>
+            <div class="col-md-3" style="background-color: white;border-radius: 20px 20px 20px 20px;">
+              <div style="height: 10px"></div>
+              <div>
+                <img src="">
+              </div>
+              <div class="text-center">
+                <h5>独具匠心</h5>
+                <p></p>
+              </div>
+            </div>
+            <div class="col-md-3" style="background-color: white;border-radius: 20px 20px 20px 20px;">
+              <div style="height: 10px"></div>
+              <div>
+                <img src="">
+              </div>
+              <div class="text-center">
+                <h5>超越自我</h5>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </el-scrollbar>
   </div>
 </template>
 
