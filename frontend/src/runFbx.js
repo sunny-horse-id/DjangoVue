@@ -51,14 +51,14 @@ function initLight() {
 
 function initMeshes() {
     const loader = new FBXLoader(); // 使用FBXLoader加载FBX文件
-    loader.load('model/fbx/test_1sqE6P3XyiQ.fbx', function (fbx) { // 替换为你的FBX文件路径
+    loader.load('model/fbx/test_BecauseYouAreBeautiful.fbx', function (fbx) { // 替换为你的FBX文件路径
         console.log(fbx);
 
         // 设置模型的缩放比例
-        fbx.scale.set(0.5, 0.5, 0.5); // 替换为你希望的缩放比例
+        fbx.scale.set(0.1, 0.1, 0.1); // 替换为你希望的缩放比例
 
-        // 设置模型的位置
-        fbx.position.set(10, 10, 10); // 替换为你希望的位置坐标
+        // 设置模型的位置 R G B
+        fbx.position.set(30, -15, 5); // 替换为你希望的位置坐标
         scene.add(fbx);
 
         // 查找动画
@@ -71,7 +71,7 @@ function initMeshes() {
 function initCamera() {
     camera = new THREE.PerspectiveCamera(
         45, window.innerWidth / window.innerHeight, 1, 1000);
-    camera.position.set(1, 2, -3);
+    camera.position.set(10, 20, 30);
 }
 
 function animate() {
