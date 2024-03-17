@@ -4,7 +4,7 @@
 
 <template>
   <div style="position: fixed; top: 0; left: 0; width: 100%;">
-    <el-scrollbar max-height="750px">
+    <el-scrollbar max-height="730px">
       <nav class="navbar navbar-expand-lg navbar-light bg-light" style="width: 100%">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -95,60 +95,73 @@
             <h5>价值观</h5>
           </div>
           <div style="height: 5px"></div>
-          <div class="row" style="width: 90%; margin: 0 auto;">
-            <div class="col-md-3" style="background-color: white;border-radius: 20px 20px 20px 20px;">
-              <div style="height: 20px"></div>
-              <div style="margin: 0 auto; width: 20%">
-                <img src="@/assets/images/about/dang.png" alt="" style="width: 40px; height: 40px; ">
-              </div>
-              <div style="height: 10px;"></div>
-              <div class="text-center">
-                <h5>勇于担当</h5>
-                <p style="font-weight: lighter; font-size: smaller">
-                  为全球教育资源匮乏地区的孩子们提供舞蹈学习机会，同时为跳舞者们提供创作灵感。
-                  让舞蹈成为连接世界、表达个性和促进文化交流的力量。
-                </p>
-              </div>
-            </div>
-            <div class="col-md-3" style="background-color: white;border-radius: 20px 20px 20px 20px;">
-              <div style="height: 20px"></div>
-              <div style="margin: 0 auto; width: 20%">
-                <img src="@/assets/images/about/time.png" alt="" style="width: 40px; height: 40px;">
-              </div>
-              <div style="height: 10px;"></div>
-              <div class="text-center">
-                <h5>与时俱进</h5>
-                <p style="font-weight: lighter; font-size: smaller">
-                  致力于融合先进技术与舞蹈教育，通过使用DDPM等技术，您实现了音乐生成舞蹈的创新方法，为学习者提供了全新的学习体验。
-                </p>
-              </div>
-            </div>
-            <div class="col-md-3" style="background-color: white;border-radius: 20px 20px 20px 20px;">
-              <div style="height: 20px"></div>
-              <div style="margin: 0 auto; width: 20%">
-                <img src="@/assets/images/about/heart.png" alt="" style="width: 40px; height: 40px;">
-              </div>
-              <div style="height: 10px;"></div>
-              <div class="text-center">
-                <h5>独具匠心</h5>
-                <p style="font-weight: lighter; font-size: smaller">
-                  通过精心的布局和优雅的设计，不仅实现功能，更传达情感，吸引用户，成为技术与艺术的完美结合。
-                </p>
-              </div>
-            </div>
-            <div class="col-md-3" style="background-color: white;border-radius: 20px 20px 20px 20px;">
-              <div style="height: 20px"></div>
-              <div style="margin: 0 auto; width: 20%">
-                <img src="@/assets/images/about/beyond.png" alt="" style="width: 40px; height: 40px;">
-              </div>
-              <div style="height: 10px;"></div>
-              <div class="text-center">
-                <h5>超越自我</h5>
-                <p style="font-weight: lighter; font-size: smaller">
+          <div style="width: 90%; margin: 0 auto;">
+            <el-row :gutter="20">
+              <el-col :span="6">
+                <div style="background-color: #e3e3df; border-radius: 15px">
+                  <div style="height: 20px"></div>
+                  <div style="margin: 0 auto; width: 20%">
+                    <img src="@/assets/images/about/dang.png" alt="" style="width: 40px; height: 40px; ">
+                  </div>
+                  <div style="height: 10px;"></div>
+                  <div class="text-center">
+                    <h5>勇于担当</h5>
+                    <p style="font-weight: lighter; font-size: smaller">
+                      为全球教育资源匮乏地区的孩子们提供舞蹈学习机会，同时为跳舞者们提供创作灵感。
+                      让舞蹈成为连接世界、表达个性和促进文化交流的力量。
+                    </p>
+                  </div>
+                </div>
+              </el-col>
+              <el-col :span="6">
+                <div style="background-color: #e3e3df; border-radius: 15px">
+                  <div style="height: 20px"></div>
+                  <div style="margin: 0 auto; width: 20%">
+                    <img src="@/assets/images/about/time.png" alt="" style="width: 40px; height: 40px;">
+                  </div>
+                  <div style="height: 10px;"></div>
+                  <div class="text-center">
+                    <h5>与时俱进</h5>
+                    <p style="font-weight: lighter; font-size: smaller">
+                      致力于融合先进技术与舞蹈教育，通过使用DDPM等技术，您实现了音乐生成舞蹈的创新方法，为学习者提供了全新的学习体验。
+                    </p>
+                  </div>
 
-                </p>
-              </div>
-            </div>
+                </div>
+              </el-col>
+              <el-col :span="6">
+                <div style="background-color: #e3e3df; border-radius: 15px">
+                  <div style="height: 20px"></div>
+                  <div style="margin: 0 auto; width: 20%">
+                    <img src="@/assets/images/about/heart.png" alt="" style="width: 40px; height: 40px;">
+                  </div>
+                  <div style="height: 10px;"></div>
+                  <div class="text-center">
+                    <h5>独具匠心</h5>
+                    <p style="font-weight: lighter; font-size: smaller">
+                      通过精心的布局和优雅的设计，不仅实现功能，更传达情感，吸引用户，成为技术与艺术的完美结合。
+                    </p>
+                  </div>
+                  <div style="height: 6px"></div>
+                </div>
+              </el-col>
+              <el-col :span="6">
+                <div style="background-color: #e3e3df; border-radius: 15px">
+                  <div style="height: 20px"></div>
+                  <div style="margin: 0 auto; width: 20%">
+                    <img src="@/assets/images/about/beyond.png" alt="" style="width: 40px; height: 40px;">
+                  </div>
+                  <div style="height: 10px;"></div>
+                  <div class="text-center">
+                    <h5>超越自我</h5>
+                    <p style="font-weight: lighter; font-size: smaller">
+                      创造出独特的用户体验,挑战技术边界，不断学习和创新，实现美学与功能的完美平衡，展现了独特的才华和创造力。
+                    </p>
+                  </div>
+                  <div style="height: 6px"></div>
+                </div>
+              </el-col>
+            </el-row>
           </div>
         </div>
       </div>
@@ -157,5 +170,20 @@
 </template>
 
 <style scoped>
+.el-row {
+  margin-bottom: 20px;
+}
 
+.el-row:last-child {
+  margin-bottom: 0;
+}
+
+.el-col {
+  border-radius: 4px;
+}
+
+.grid-content {
+  border-radius: 4px;
+  min-height: 36px;
+}
 </style>
