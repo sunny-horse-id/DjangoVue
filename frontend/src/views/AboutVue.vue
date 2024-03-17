@@ -44,19 +44,8 @@
       </nav>
       <div style="width: 100%; background-color: rgba(222,218,194,0.47)">
         <div style="margin: 0 auto; width: 60%; padding-top: 5px">
-          <div class="row">
-            <div class="col-md-4 text-center" style="background-color: rgba(80,218,166,0.93)">
-              <h4>关于舞</h4>
-            </div>
-            <div class="col-md-4 text-center" style="background-color: #658dc7">
-              <h4>团队理念</h4>
-            </div>
-            <div class="col-md-4 text-center" style="background-color: #6865c7">
-              <h4>联系我们</h4>
-            </div>
-          </div>
         </div>
-        <div style="background-color: #f8f8f8; width: 61.6%; margin: 0 auto;">
+        <div style="background-color: #f8f8f8; width: 61.6%; margin: 0 auto; border-radius: 20px 20px 0 0">
           <div style="height: 50px"></div>
           <div class="text-center"><h3>舞</h3></div>
           <div style="height: 20px"></div>
@@ -79,7 +68,7 @@
           </div>
         </div>
         <div
-            style="width: 61.6%; margin: 0 auto; background: linear-gradient(to bottom, rgba(239,230,193,0.75), #f8f8f2);">
+            style="width: 61.6%; margin: 0 auto; background: linear-gradient(to bottom, rgba(239,230,193,0.75), #f8f8f2); border-radius: 0 0 20px 20px">
           <div style="height: 50px"></div>
           <div class="text-center"><h3>团队理念</h3></div>
           <div style="height: 20px"></div>
@@ -126,7 +115,6 @@
                       致力于融合先进技术与舞蹈教育，通过使用DDPM等技术，您实现了音乐生成舞蹈的创新方法，为学习者提供了全新的学习体验。
                     </p>
                   </div>
-
                 </div>
               </el-col>
               <el-col :span="6">
@@ -165,25 +153,45 @@
           </div>
         </div>
       </div>
+      <div style="height: 10px; background-color: rgba(222,218,194,0.47)"></div>
+      <div class="container-fluid text-center"
+           style="background-color: #313133; padding-top: 10px;">
+        <div class="copyright">
+          <p>
+            <a href="javascript:;">关于我们</a>
+            <a href="javascript:;">帮助中心</a>
+            <a href="javascript:;">搜索推荐</a>
+            <a href="javascript:;">友情链接</a>
+          </p>
+          <p>CopyRight © 舞</p>
+        </div>
+      </div>
     </el-scrollbar>
   </div>
 </template>
 
 <style scoped>
-.el-row {
-  margin-bottom: 20px;
-}
+.copyright {
+  height: 120px;
+  padding-top: 40px;
+  text-align: center;
+  color: #999;
+  font-size: 15px;
 
-.el-row:last-child {
-  margin-bottom: 0;
-}
+  p {
+    line-height: 1;
+    margin-bottom: 20px;
+  }
 
-.el-col {
-  border-radius: 4px;
-}
+  a {
+    color: #999;
+    line-height: 1;
+    padding: 0 10px;
+    border-right: 1px solid #999;
 
-.grid-content {
-  border-radius: 4px;
-  min-height: 36px;
+    &:last-child {
+      border-right: none;
+    }
+  }
 }
 </style>
