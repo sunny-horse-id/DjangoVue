@@ -118,27 +118,35 @@
               <div style="height: 10px;"></div>
               <div class="text-center">
                 <h5>与时俱进</h5>
-                <p></p>
+                <p style="font-weight: lighter; font-size: smaller">
+                  致力于融合先进技术与舞蹈教育，通过使用DDPM等技术，您实现了音乐生成舞蹈的创新方法，为学习者提供了全新的学习体验。
+                </p>
               </div>
             </div>
             <div class="col-md-3" style="background-color: white;border-radius: 20px 20px 20px 20px;">
-              <div style="height: 10px"></div>
-              <div>
-                <img src="">
+              <div style="height: 20px"></div>
+              <div style="margin: 0 auto; width: 20%">
+                <img src="@/assets/images/about/heart.png" alt="" style="width: 40px; height: 40px;">
               </div>
+              <div style="height: 10px;"></div>
               <div class="text-center">
                 <h5>独具匠心</h5>
-                <p></p>
+                <p style="font-weight: lighter; font-size: smaller">
+                  通过精心的布局和优雅的设计，不仅实现功能，更传达情感，吸引用户，成为技术与艺术的完美结合。
+                </p>
               </div>
             </div>
             <div class="col-md-3" style="background-color: white;border-radius: 20px 20px 20px 20px;">
-              <div style="height: 10px"></div>
-              <div>
-                <img src="">
+              <div style="height: 20px"></div>
+              <div style="margin: 0 auto; width: 20%">
+                <img src="@/assets/images/about/beyond.png" alt="" style="width: 40px; height: 40px;">
               </div>
+              <div style="height: 10px;"></div>
               <div class="text-center">
                 <h5>超越自我</h5>
-                <p></p>
+                <p style="font-weight: lighter; font-size: smaller">
+
+                </p>
               </div>
             </div>
           </div>
