@@ -1,8 +1,8 @@
 <script setup>
 import {onMounted} from "vue";
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js'; // 导入FBXLoader
+import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
+import {FBXLoader} from 'three/examples/jsm/loaders/FBXLoader.js'; // 导入FBXLoader
 onMounted(() => {
   let scene, renderer, camera;
   let mixer;
@@ -25,7 +25,7 @@ onMounted(() => {
   });
 
   function initRenderer() {
-    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer = new THREE.WebGLRenderer({antialias: true});
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
@@ -85,6 +85,9 @@ onMounted(() => {
     }
     renderer.render(scene, camera);
   }
+
+  let audio = new Audio('music/BecauseYouAreBeautiful.wav');
+  audio.play();
 })
 </script>
 
