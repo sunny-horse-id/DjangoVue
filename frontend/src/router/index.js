@@ -12,7 +12,7 @@ const router = createRouter({
       path: '/',
       children: [
         {
-          path: '/index',
+          path: '/',
           component: IndexView,
         },
         {
