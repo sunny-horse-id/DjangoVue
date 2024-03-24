@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="button-wrapper">
     <button @click="toggleAnimation">{{ isPlaying ? '暂停动画' : '播放动画' }}</button>
   </div>
 </template>
@@ -120,6 +120,12 @@ const {toggleAnimation} = setupAnimation(index, paths);
 
 
 <style scoped>
+.button-wrapper {
+  position: fixed;
+  top: 20px; /* 距离顶部的距离 */
+  right: 20px; /* 距离右侧的距离 */
+  z-index: 999; /* 设置层级，确保按钮在其他元素上面 */
+}
 button {
   padding: 10px 20px;
   font-size: 16px;
