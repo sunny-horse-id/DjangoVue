@@ -10,7 +10,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js';
 
-function setupAnimation(fbxPath, wavPath) {
+function setupAnimation(index, paths) {
   let isPlaying = ref(false);
   let scene, renderer, camera;
   let mixer;
@@ -24,7 +24,7 @@ function setupAnimation(fbxPath, wavPath) {
   });
 
   function initRenderer() {
-    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer = new THREE.WebGLRenderer({antialias: true});
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
@@ -52,7 +52,7 @@ function setupAnimation(fbxPath, wavPath) {
 
   function initMeshes() {
     const loader = new FBXLoader();
-    loader.load(fbxPath, function (fbx) {
+    loader.load(paths[index], function (fbx) {
       fbx.scale.set(0.1, 0.1, 0.1);
       fbx.position.set(30, -15, 5);
       scene.add(fbx);
@@ -69,7 +69,7 @@ function setupAnimation(fbxPath, wavPath) {
   }
 
   function initBackgroundMusic() {
-    backgroundMusic = new Audio(wavPath);
+    backgroundMusic = new Audio(paths[index].replace('.fbx', '.wav'));
     backgroundMusic.loop = true;
     backgroundMusic.volume = 0.5; // Adjust volume as needed
   }
@@ -107,7 +107,15 @@ function setupAnimation(fbxPath, wavPath) {
   };
 }
 
-const { toggleAnimation } = setupAnimation('model/fbx/test_BecauseYouAreBeautiful.fbx', 'music/BecauseYouAreBeautiful.wav');
+const index = 1; // 索引值
+const paths = [
+  'model/fbx/test_BecauseYouAreBeautiful.fbx',
+  'model/fbx/test_BecauseYouAreBeautiful.fbx',
+  'model/fbx/test_BecauseYouAreBeautiful.fbx',
+  // 其他路径
+];
+
+const {toggleAnimation} = setupAnimation(index, paths);
 </script>
 
 
