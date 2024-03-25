@@ -38,17 +38,19 @@ watch(activeName, (newValue) => {
 
 watch(selectedFile, (newValue) => {
   //console.log(selectedFile)
+  clearAnimation()
   setupAnimation(address.value[newValue][0], address.value[newValue][1]);
   isPlaying.value = false
 });
 
 
-
+let scene, renderer, camera, mixer, clock, backgroundMusic;
 function setupAnimation(fbxPath, wavPath) {
-  let scene, renderer, camera;
-  let mixer;
-  let clock = new THREE.Clock();
-  let backgroundMusic;
+  //let scene, renderer, camera;
+  //let mixer;
+  // let clock = new THREE.Clock();
+  clock = new THREE.Clock();
+  // let backgroundMusic;
 
   window.addEventListener('resize', function () {
     camera.aspect = window.innerWidth / window.innerHeight;
@@ -89,7 +91,6 @@ function setupAnimation(fbxPath, wavPath) {
       fbx.scale.set(0.1, 0.1, 0.1);
       fbx.position.set(30, -15, 5);
       scene.add(fbx);
-      console.log(scene)
       mixer = new THREE.AnimationMixer(fbx);
       const action = mixer.clipAction(fbx.animations[0]);
       action.play();
@@ -132,6 +133,34 @@ function setupAnimation(fbxPath, wavPath) {
   initBackgroundMusic();
   animate();
 }
+function resizeHandler() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
+function clearAnimation() {
+  // 清除场景中的所有对象
+  scene.remove(...scene.children);
+
+  // 重置渲染器大小
+  renderer.setSize(1, 1); // 将渲染器大小设置为1x1像素
+
+  // 清除事件监听器
+  window.removeEventListener('resize', resizeHandler);
+
+  // 清除动画混合器
+  if (mixer) {
+    mixer.stopAllAction();
+    mixer = null;
+  }
+
+  // 清除背景音乐
+  if (backgroundMusic) {
+    backgroundMusic.pause();
+    backgroundMusic = null;
+  }
+}
+
 
 function toggleAnimation() {
   isPlaying.value = !isPlaying.value;
