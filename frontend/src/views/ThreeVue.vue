@@ -1,4 +1,7 @@
 <template>
+  <div class="button-download">
+    <button @click="download">下载</button>
+  </div>
   <div class="button-wrapper">
     <button @click="toggleAnimation">{{ isPlaying ? '暂停动画' : '播放动画' }}</button>
   </div>
@@ -10,7 +13,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js';
 
-function setupAnimation(index, paths) {
+function setupAnimation(fbxPath, wavPath) {
   let isPlaying = ref(false);
   let scene, renderer, camera;
   let mixer;
@@ -24,7 +27,7 @@ function setupAnimation(index, paths) {
   });
 
   function initRenderer() {
-    renderer = new THREE.WebGLRenderer({antialias: true});
+    renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
@@ -52,7 +55,7 @@ function setupAnimation(index, paths) {
 
   function initMeshes() {
     const loader = new FBXLoader();
-    loader.load(paths[index], function (fbx) {
+    loader.load(fbxPath, function (fbx) {
       fbx.scale.set(0.1, 0.1, 0.1);
       fbx.position.set(30, -15, 5);
       scene.add(fbx);
@@ -69,7 +72,7 @@ function setupAnimation(index, paths) {
   }
 
   function initBackgroundMusic() {
-    backgroundMusic = new Audio(paths[index].replace('.fbx', '.wav'));
+    backgroundMusic = new Audio(wavPath);
     backgroundMusic.loop = true;
     backgroundMusic.volume = 0.5; // Adjust volume as needed
   }
@@ -107,25 +110,37 @@ function setupAnimation(index, paths) {
   };
 }
 
-const index = 1; // 索引值
-const paths = [
-  'model/fbx/test_BecauseYouAreBeautiful.fbx',
-  'model/fbx/test_BecauseYouAreBeautiful.fbx',
-  'model/fbx/test_BecauseYouAreBeautiful.fbx',
-  // 其他路径
-];
+const { toggleAnimation } = setupAnimation('model/fbx/test_BecauseYouAreBeautiful.fbx', 'music/BecauseYouAreBeautiful.wav');
 
-const {toggleAnimation} = setupAnimation(index, paths);
+function download() {
+  const url =
+      'https://zy-blog-oss.oss-cn-beijing.aliyuncs.com/28d0bf30-bbaa-4748-a70e-3970720f06bd.jpg'; // 文件的下载链接
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = '28d0bf30-bbaa-4748-a70e-3970720f06bd.jpg'; // 设置下载的文件名
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
 </script>
 
 
 <style scoped>
+.button-download {
+  position: fixed;
+  top: 20px;
+  right: 150px; /* 将右侧间距调整为适当的距离 */
+  z-index: 999;
+}
+
 .button-wrapper {
   position: fixed;
-  top: 20px; /* 距离顶部的距离 */
-  right: 20px; /* 距离右侧的距离 */
-  z-index: 999; /* 设置层级，确保按钮在其他元素上面 */
+  top: 20px;
+  right: 20px; /* 将右侧间距调整为适当的距离 */
+  z-index: 999;
 }
+
+/* 下载按钮样式 */
 button {
   padding: 10px 20px;
   font-size: 16px;
@@ -135,8 +150,10 @@ button {
   border: none;
   border-radius: 5px;
   outline: none;
+  margin-right: 10px; /* 添加右侧间距，使其与播放按钮有一定的距离 */
 }
 
+/* 鼠标悬停时的样式 */
 button:hover {
   background-color: #0056b3;
 }
