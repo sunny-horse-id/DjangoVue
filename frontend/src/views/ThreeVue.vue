@@ -8,13 +8,23 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js';
 
+// 获取动态数据
+import {PlayAddress} from '@/apis/play.js'
+const address = ref([])
+//调用接口
+const getAddress = async () => {
+  address.value = (await PlayAddress()).data
+}
+getAddress()
+
+const isPlaying = ref(false);
+
 function setupAnimation(fbxPath, wavPath) {
-  let isPlaying = ref(false);
   let scene, renderer, camera;
   let mixer;
   let clock = new THREE.Clock();
@@ -91,10 +101,6 @@ function setupAnimation(fbxPath, wavPath) {
     renderer.render(scene, camera);
   }
 
-  function toggleAnimation() {
-    isPlaying.value = !isPlaying.value;
-  }
-
   initRenderer();
   initScene();
   initAxesHelper();
@@ -109,19 +115,34 @@ function setupAnimation(fbxPath, wavPath) {
     toggleAnimation
   };
 }
+function toggleAnimation() {
+  isPlaying.value = !isPlaying.value;
+}
+watch(address, (newValue) => {
+  setupAnimation(newValue[0], newValue[1]);
+});
 
-const { toggleAnimation } = setupAnimation('model/fbx/test_BecauseYouAreBeautiful.fbx', 'music/BecauseYouAreBeautiful.wav');
-
+//const { toggleAnimation } = setupAnimation('model/fbx/test_BecauseYouAreBeautiful.fbx', address.value[1]);
+//const { toggleAnimation } = setupAnimation(address.value[0], address.value[1]);
 function download() {
-  const url =
-      'https://zy-blog-oss.oss-cn-beijing.aliyuncs.com/28d0bf30-bbaa-4748-a70e-3970720f06bd.jpg'; // 文件的下载链接
+  const url = address.value[2]; // 文件的下载链接
   const link = document.createElement('a');
   link.href = url;
-  link.download = '28d0bf30-bbaa-4748-a70e-3970720f06bd.jpg'; // 设置下载的文件名
+  link.download = address.value[3]; // 设置下载的文件名
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
 }
+// function download() {
+//   const url =
+//       'https://zy-blog-oss.oss-cn-beijing.aliyuncs.com/28d0bf30-bbaa-4748-a70e-3970720f06bd.jpg'; // 文件的下载链接
+//   const link = document.createElement('a');
+//   link.href = url;
+//   link.download = '28d0bf30-bbaa-4748-a70e-3970720f06bd.jpg'; // 设置下载的文件名
+//   document.body.appendChild(link);
+//   link.click();
+//   document.body.removeChild(link);
+// }
 </script>
 
 
