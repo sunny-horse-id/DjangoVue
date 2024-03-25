@@ -1,6 +1,6 @@
 <!-- ParentComponent.vue -->
 <template>
-  <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
+  <el-tabs v-model="activeName" class="demo-tabs">
     <el-tab-pane v-for="(item, index) in address" :key="index" :label="`File ${index}`" :name="`file_${index}`">
       <div class="button-download">
         <button @click="download">下载</button>
@@ -28,14 +28,13 @@ const getAddress = async () => {
 getAddress()
 const isPlaying = ref(false);
 const selectedFile = ref(0)
-// eslint-disable-next-line no-unused-vars
-const handleClick = (tab, event) => {
-
-}
 
 watch(activeName, (newValue) => {
   selectedFile.value = newValue.split('_')[1]
 })
+
+
+// 调用函数以移除所有模型
 
 watch(selectedFile, (newValue) => {
   //console.log(selectedFile)
@@ -90,6 +89,7 @@ function setupAnimation(fbxPath, wavPath) {
       fbx.scale.set(0.1, 0.1, 0.1);
       fbx.position.set(30, -15, 5);
       scene.add(fbx);
+      console.log(scene)
       mixer = new THREE.AnimationMixer(fbx);
       const action = mixer.clipAction(fbx.animations[0]);
       action.play();
@@ -131,7 +131,6 @@ function setupAnimation(fbxPath, wavPath) {
   initControls();
   initBackgroundMusic();
   animate();
-
 }
 
 function toggleAnimation() {
