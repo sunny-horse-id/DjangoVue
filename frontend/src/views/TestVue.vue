@@ -1,29 +1,49 @@
+<!-- ParentComponent.vue -->
 <template>
-
-  <div class="button-download">
-    <button @click="download">下载</button>
-  </div>
-  <div class="button-wrapper">
-    <button @click="toggleAnimation">{{ isPlaying ? '暂停动画' : '播放动画' }}</button>
-  </div>
+  <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
+    <el-tab-pane v-for="(item, index) in address" :key="index" :label="`File ${index}`" :name="`file_${index}`">
+      <div class="button-download">
+        <button @click="download">下载</button>
+      </div>
+      <div class="button-wrapper">
+        <button @click="toggleAnimation">{{ isPlaying ? '暂停动画' : '播放动画' }}</button>
+      </div>
+      {{ item }}
+    </el-tab-pane>
+  </el-tabs>
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js';
-
-// 获取动态数据
-import {PlayAddress} from '@/apis/play.js'
+import {ref, watch} from 'vue'
+import {PlayMulAddress} from "@/apis/play.js";
+import * as THREE from "three";
+import {OrbitControls} from "three/addons/controls/OrbitControls.js";
+import {FBXLoader} from "three/addons/loaders/FBXLoader.js";
+const activeName = ref('file_0')
 const address = ref([])
 //调用接口
 const getAddress = async () => {
-  address.value = (await PlayAddress()).data
+  address.value = (await PlayMulAddress()).data
 }
 getAddress()
-
 const isPlaying = ref(false);
+const selectedFile = ref(0)
+// eslint-disable-next-line no-unused-vars
+const handleClick = (tab, event) => {
+
+}
+
+watch(activeName, (newValue) => {
+  selectedFile.value = newValue.split('_')[1]
+})
+
+watch(selectedFile, (newValue) => {
+  //console.log(selectedFile)
+  setupAnimation(address.value[newValue][0], address.value[newValue][1]);
+  isPlaying.value = false
+});
+
+
 
 function setupAnimation(fbxPath, wavPath) {
   let scene, renderer, camera;
@@ -119,32 +139,28 @@ function toggleAnimation() {
 }
 
 watch(address, (newValue) => {
-  setupAnimation(newValue[0], newValue[1]);
+  setupAnimation(newValue[0][0], newValue[0][1]);
 });
 
+
 function download() {
-  const url = address.value[2]; // 文件的下载链接
+  const url = address.value[selectedFile.value][2]; // 文件的下载链接
   const link = document.createElement('a');
   link.href = url;
-  link.download = address.value[3]; // 设置下载的文件名
+  link.download = address.value[selectedFile.value][3]; // 设置下载的文件名
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
 }
-// function download() {
-//   const url = 'http://localhost:5017/export'; // 文件的下载链接
-//   const link = document.createElement('a');
-//   link.href = url;
-//   //link.download = address.value[3]; // 设置下载的文件名
-//   document.body.appendChild(link);
-//   link.click();
-//   document.body.removeChild(link);
-// }
-
 </script>
 
-
-<style scoped>
+<style>
+.demo-tabs {
+  padding: 32px;
+  color: #6b778c;
+  font-size: 32px;
+  font-weight: 600;
+}
 .button-download {
   position: fixed;
   top: 20px;
