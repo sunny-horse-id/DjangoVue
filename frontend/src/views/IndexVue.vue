@@ -164,7 +164,7 @@ function toggleAnimation() {
 
 // 单个模型的下载函数
 function download() {
-  const url = address.value[selectedFile.value][2]; // 文件的下载链接
+  const url = 'http://localhost:5017'; // 文件的下载链接
   const link = document.createElement('a');
   link.href = url;
   link.download = address.value[selectedFile.value][3]; // 设置下载的文件名
