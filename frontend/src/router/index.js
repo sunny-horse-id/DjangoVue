@@ -15,7 +15,7 @@ const router = createRouter({
           component: TestVue,
         },
         {
-          path: '/index',
+          path: '',
           component: IndexVue,
         }
       ],
