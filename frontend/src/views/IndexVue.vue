@@ -40,7 +40,6 @@ let scene, renderer, camera, mixer, clock, backgroundMusic; // fbx播放相关�
 // 获取地址的初始化函数
 const getAddress = async () => {
   address.value = (await getAddressAPI()).data
-  alert(address.value)
 }
 getAddress()  // 获取地址初始化
 
