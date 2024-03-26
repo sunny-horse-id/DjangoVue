@@ -5,8 +5,8 @@ import MainVue from "@/views/MainVue.vue";
 import AboutVue from "@/views/AboutVue.vue";
 import ThreeVue from "@/views/ThreeVue.vue";
 import UploadVue from "@/views/UploadVue.vue";
-import Page from "@/views/Page.vue";
 import TestVue from "@/views/TestVue.vue";
+import IndexVue from "@/views/IndexVue.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,9 +34,12 @@ const router = createRouter({
           path: '/test',
           component: TestVue,
         },
+        {
+          path: '/index',
+          component: IndexVue,
+        }
       ],
     },
-    { path: '/page/:id', name: 'Page', component: Page },
   ]
 })
 
