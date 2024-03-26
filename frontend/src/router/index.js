@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 //导入Vue组件
-import MainVue from "@/views/MainVue.vue";
 import AboutVue from "@/views/AboutVue.vue";
 import ThreeVue from "@/views/ThreeVue.vue";
 import UploadVue from "@/views/UploadVue.vue";
@@ -14,10 +13,6 @@ const router = createRouter({
     {
       path: '/',
       children: [
-        {
-          path: '',
-          component: MainVue,
-        },
         {
           path: '/about',
           component: AboutVue,
