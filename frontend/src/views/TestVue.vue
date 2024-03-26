@@ -1,11 +1,3 @@
-<!-- ParentComponent.vue -->
-<template>
-  <span></span>
-</template>
-
-<script setup>
-</script>
-
 <style>
 .demo-tabs {
   color: #6b778c;
@@ -44,3 +36,10 @@ button:hover {
   background-color: #0056b3;
 }
 </style>
+
+<template>
+  <span></span>
+</template>
+
+<script setup>
+</script>
