@@ -1,9 +1,12 @@
 <template>
   <el-tabs v-model="activeName" class="demo-tabs">
     <el-tab-pane v-for="(item, index) in address" :key="index" :label="`Module ${index}`" :name="`module_${index}`">
+      <div class="button-all-download">
+        <button @click="allDownload">全部下载</button>
+      </div>
       <!--  单模型的下载按钮 -->
       <div class="button-download">
-        <button @click="download">下载</button>
+        <button @click="oneDownload">下载</button>
       </div>
       <!--  模型的播放与暂停  -->
       <div class="button-wrapper">
@@ -163,14 +166,36 @@ function toggleAnimation() {
 }
 
 // 单个模型的下载函数
-function download() {
-  const url = 'http://localhost:5017'; // 文件的下载链接
+function oneDownload() {
+  const need = address.value[selectedFile.value][0];
+  const url = 'http://127.0.0.1:5017/export?need='+need; // 文件的下载链接
   const link = document.createElement('a');
   link.href = url;
-  link.download = address.value[selectedFile.value][3]; // 设置下载的文件名
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
+}
+
+// 一次性全部下载函数
+async function allDownload() {
+  for (let i = 0; i < address.value.length; i++) {
+    const need = address.value[i][0];
+    const url = 'http://127.0.0.1:5017/export?need=' + need; // 文件的下载链接
+    // 创建一个 promise 来等待下载完成
+    // eslint-disable-next-line no-unused-vars
+    await new Promise((resolve, reject) => {
+      const link = document.createElement('a');
+      link.href = url;
+      document.body.appendChild(link);
+      link.addEventListener('click', () => {
+        setTimeout(() => {
+          document.body.removeChild(link);
+          resolve();
+        }, 1000); // 这里可以根据需要调整等待时间，单位是毫秒
+      });
+      link.click();
+    });
+  }
 }
 
 /* 变量改变监听函数 */

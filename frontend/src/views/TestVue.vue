@@ -4,10 +4,18 @@
   font-size: 32px;
   font-weight: 600;
 }
+
 .button-download {
   position: fixed;
   top: 65px;
   right: 150px; /* 将右侧间距调整为适当的距离 */
+  z-index: 999;
+}
+
+.button-all-download {
+  position: fixed;
+  top: 65px;
+  right: 250px; /* 将右侧间距调整为适当的距离 */
   z-index: 999;
 }
 
