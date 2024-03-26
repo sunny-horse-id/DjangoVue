@@ -1,5 +1,5 @@
 import request from "@/utils/request.js"
 
-export const PlayMulAddress = () => {
+export const getAddressAPI = () => {
     return request.get('/mulAddress')
 }

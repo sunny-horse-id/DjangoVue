@@ -16,9 +16,9 @@
 <script setup>
 /* 导入相关依赖 */
 // Vue驱动相关导入
-import {ref, watch} from 'vue'
+import { ref, watch } from 'vue'
 // API借口的导入
-import {PlayMulAddress} from "@/apis/play.js";
+import { getAddressAPI } from "@/apis/play.js";
 // Tree.js的导入
 import * as THREE from "three";
 import {OrbitControls} from "three/addons/controls/OrbitControls.js";
@@ -36,7 +36,7 @@ let scene, renderer, camera, mixer, clock, backgroundMusic; // fbx播放相关�
 /* 函数定义 */
 // 获取地址的初始化函数
 const getAddress = async () => {
-  address.value = (await PlayMulAddress()).data
+  address.value = (await getAddressAPI()).data
 }
 getAddress()  // 获取地址初始化
 
