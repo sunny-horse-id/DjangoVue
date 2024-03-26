@@ -14,14 +14,14 @@
 }
 .button-download {
   position: fixed;
-  top: 20px;
+  top: 50px;
   right: 150px; /* 将右侧间距调整为适当的距离 */
   z-index: 999;
 }
 
 .button-wrapper {
   position: fixed;
-  top: 20px;
+  top: 50px;
   right: 20px; /* 将右侧间距调整为适当的距离 */
   z-index: 999;
 }
