@@ -8,7 +8,6 @@
       <div class="button-wrapper">
         <button @click="toggleAnimation">{{ isPlaying ? '暂停动画' : '播放动画' }}</button>
       </div>
-      {{ item }}
     </el-tab-pane>
   </el-tabs>
 </template>
