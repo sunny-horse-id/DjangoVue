@@ -29,7 +29,7 @@ export default defineConfig({
       //拦截所有包含/api的链接
       '/api': {
         //转换的目标链接将5173转为5017，由前端发送
-        target: 'http://127.0.0.1:5017',
+        target: 'http://192.168.0.100:5017',
         //是否换源，true则转化
         changeOrigin: true,
         //使得转换后的链接中的/api变成空字符串

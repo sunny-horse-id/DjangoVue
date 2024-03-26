@@ -40,6 +40,7 @@ let scene, renderer, camera, mixer, clock, backgroundMusic; // fbx播放相关�
 // 获取地址的初始化函数
 const getAddress = async () => {
   address.value = (await getAddressAPI()).data
+  alert(address.value)
 }
 getAddress()  // 获取地址初始化
 
@@ -168,7 +169,7 @@ function toggleAnimation() {
 // 单个模型的下载函数
 function oneDownload() {
   const need = address.value[selectedFile.value][0];
-  const url = 'http://127.0.0.1:5017/export?need='+need; // 文件的下载链接
+  const url = 'http://192.168.0.100:5017/export?need='+need; // 文件的下载链接
   const link = document.createElement('a');
   link.href = url;
   document.body.appendChild(link);
@@ -180,7 +181,7 @@ function oneDownload() {
 async function allDownload() {
   for (let i = 0; i < address.value.length; i++) {
     const need = address.value[i][0];
-    const url = 'http://127.0.0.1:5017/export?need=' + need; // 文件的下载链接
+    const url = 'http://192.168.0.100:5017/export?need=' + need; // 文件的下载链接
     // 创建一个 promise 来等待下载完成
     // eslint-disable-next-line no-unused-vars
     await new Promise((resolve, reject) => {
